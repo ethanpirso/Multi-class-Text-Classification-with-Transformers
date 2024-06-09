@@ -6,11 +6,11 @@ This repository presents a detailed exploration and implementation of Transforme
 
 The project is structured around several core components, each addressing a critical aspect of machine learning workflow:
 
-- **Data Preparation**: Utilizing the 20 Newsgroups dataset, we meticulously preprocess the text data, ensuring it is tokenized, lowercased, and stripped of punctuation to facilitate effective model training. Labels are also transformed to suit the multi-class classification framework.
+- **Data Preparation**: In our approach to utilizing the 20 Newsgroups dataset, we initially experimented with preprocessing techniques such as removing punctuation and converting text to lowercase. However, these methods unexpectedly degraded the model's performance. Consequently, our final preprocessing strategy solely involves tokenizing the text data, while retaining its original case and punctuation. Labels are adapted to align with the multi-class classification framework.
 
-- **Model Architecture**: At the heart of our solution is a Transformer model, fine-tuned from the pre-trained BERT model `google/bert_uncased_L-4_H-256_A-4`. We have implemented a custom self-attention mechanism within our Transformer model to enhance its understanding of the context and relevance of words in text documents.
+- **Model Architecture**: At the heart of our solution is a Transformer model, fine-tuned from the pre-trained BERT model `google/bert_uncased_L-4_H-256_A-4`. A pivotal feature of our Transformer model is the implementation of a custom self-attention mechanism designed to enhance its understanding of the context and relevance of words in text documents. This mechanism, with its three attention heads, allows the model to focus on different parts of the sentence simultaneously, thereby capturing varied nuances in the text. Each head computes its own attention scores, which are then combined to form a comprehensive understanding of the text's context.
 
-- **Training Process**: Our training regimen includes careful monitoring to save the model at its peak performance, ensuring we capture the most effective version of the model based on its validation set performance.
+- **Training Process**: The training process is meticulously designed to monitor and save the model at its optimal performance, capturing the most effective iteration based on validation set metrics. Default training parameters include a batch size of 32, a maximum tokenized input sequence length of 128, a learning rate of 2e-5, and a total of 7 training epochs.
 
 - **Evaluation and Metrics**: The model's prowess is rigorously evaluated on a separate test set, with a comprehensive report on accuracy, precision, recall, and F1 score for each category, alongside an aggregate performance metric.
 
@@ -28,7 +28,7 @@ These results underscore the model's robustness and its ability to generalize ac
 ## Project Files Overview
 
 - `main.py`: Entry point for training and evaluating the model.
-- `models.py`: Defines the Transformer model architecture, including the custom self-attention mechanism, and training/validation steps.
+- `models.py`: Defines the Transformer model architecture, including the custom self-attention mechanism with three heads, and training/validation steps.
 - `dataloader.py`: Contains utilities for loading and preprocessing the dataset.
 - `requirements.txt`: Lists all the necessary Python packages.
 
@@ -42,11 +42,11 @@ To replicate this project's environment and results, follow these steps:
 
 ## Challenges and Solutions
 
-Throughout this project, we encountered and overcame several challenges, including optimizing the custom self-attention mechanism for our specific task and managing computational resources. These hurdles were addressed through iterative testing.
+Throughout this project, we encountered and overcame several challenges, including optimizing the custom self-attention mechanism for our specific task and managing computational resources. These hurdles were addressed through iterative testing and refinement of our model's architecture.
 
 ## Conclusion
 
-This project stands as a testament to the power of Transformer models in handling complex NLP tasks. Through careful implementation and fine-tuning, including the development of a custom self-attention mechanism and leveraging a specific pre-trained BERT model, we've demonstrated that even with the vast and varied 20 Newsgroups dataset, it is possible to achieve meaningful and practical text classification results.
+This project stands as a testament to the power of Transformer models in handling complex NLP tasks. Through careful implementation and fine-tuning, including the development of a custom self-attention mechanism with three heads and leveraging a specific pre-trained BERT model, we've demonstrated that even with the vast and varied 20 Newsgroups dataset, it is possible to achieve meaningful and practical text classification results.
 
 ## Authors
 
